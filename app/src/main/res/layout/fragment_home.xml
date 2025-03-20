@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <!-- Main Content in a Scrollable Layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Today's Meals Title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Today's Meals"
+                    android:textSize="18sp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- Horizontal RecyclerView for Today's Meals -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/noMealText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No meal plan for today"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/on_surface_variant"
+                android:padding="16dp"
+                android:visibility="gone"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/todaysMealRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <!-- Toggle View Weekly Plan -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/viewWeeklyPlanButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Weekly Plan"
+                app:cornerRadius="24dp"
+                android:backgroundTint="@color/primary_variant"
+                android:textColor="@color/on_primary"
+                android:layout_marginTop="16dp"/>
+
+            <!-- Favorite Stores Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="24dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Favorite Stores"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"
+                    android:layout_marginEnd="4dp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/filterStoresIcon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_filter"
+                    app:tint="@color/black"
+                    android:contentDescription="Filter Stores"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/primary"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <!-- Add Favorite Store Icon -->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/addFavStoreIcon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_add"
+                    android:contentDescription="Add Favorite Store"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/primary"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <!-- View All Stores on Map Icon -->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/viewMapIcon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_explore"
+                    app:tint="@color/black"
+                    android:contentDescription="View Stores on Map"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/primary"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+            </LinearLayout>
+
+            <!-- Favorite Stores RecyclerView inside a MaterialCardView -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:layout_marginTop="8dp"
+                app:strokeColor="@color/primary"
+                app:strokeWidth="2dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/favStoresRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Spacer to push content up -->
+            <View
+                android:layout_width="10dp"
+                android:layout_height="150dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Floating Action Button (FAB) for Shopping Cart -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cart"
+        android:contentDescription="Shopping Cart"
+        app:backgroundTint="@color/primary"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="12dp"
+        android:elevation="55dp"
+        android:layout_marginBottom="150dp"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors (Darker Tones) -->
+    <color name="primary">#FF8F00</color>
+    <color name="primary_variant">#DD2C00</color>
+    <color name="on_primary">#000000</color>
+    <color name="on_primary_variant">#333333</color>
+
+
+
+
+    <!-- Secondary Colors -->
+    <color name="secondary">#FFCC80</color>
+    <color name="on_secondary">#000000</color>
+
+    <!-- Tertiary Colors -->
+    <color name="tertiary">#FF6E40</color>
+
+    <!-- Background and Surface -->
+    <color name="background">#1E1E1E</color>
+    <color name="surface">#424242</color>
+    <color name="on_surface">#FFFFFF</color>
+    <color name="on_surface_variant">#BDBDBD</color>
+
+    <!-- State Colors -->
+    <color name="error">#CF6679</color>
+    <color name="success">#81C784</color>
+
+    <!-- Neutral Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="breakfastYellow">#FFEB3B</color>
+    <color name="lunchGreen">#4CAF50</color>
+    <color name="dinnerOrange">#FF7043</color>
+
+    <color name="textDarkBrown">#4E342E</color>  <!-- Dark Brown for better contrast on yellow/orange -->
+    <color name="textLightBeige">#FFF3E0</color>
+    <color name="chip_selector">#FFE0B2</color>
+
+</resources>

@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:contentDescription="@string/imageDec"
-        android:src="@drawable/landing" />
+        android:src="@drawable/landing_page" />
 
     <!-- Dark Overlay for Image -->
 

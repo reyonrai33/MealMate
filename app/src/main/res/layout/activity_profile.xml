@@ -4,14 +4,16 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Background Image -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/auth"
+        android:src="@drawable/landing_page"
         android:adjustViewBounds="true"
         android:alpha="0.7"/>
 
+    <!-- ScrollView for Profile Form -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -32,7 +34,7 @@
                 android:contentDescription="@string/profile_image_desc"
                 android:background="@drawable/profile_border"
                 android:elevation="6dp"
-                android:layout_marginBottom="12dp"/>
+                android:layout_marginBottom="16dp"/>
 
             <!-- Upload Button -->
             <com.google.android.material.button.MaterialButton
@@ -58,7 +60,7 @@
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusBottomEnd="16dp"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etFullName"
@@ -77,7 +79,7 @@
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusBottomEnd="16dp"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etMobile"
@@ -85,7 +87,6 @@
                     android:layout_height="wrap_content"
                     android:inputType="phone"/>
             </com.google.android.material.textfield.TextInputLayout>
-
 
             <!-- Gender Selection Dropdown -->
             <com.google.android.material.textfield.TextInputLayout
@@ -98,7 +99,7 @@
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusBottomEnd="16dp"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="16dp">
 
                 <AutoCompleteTextView
                     android:id="@+id/etGender"
@@ -109,8 +110,8 @@
                     android:clickable="true"
                     android:completionThreshold="1"
                     android:dropDownHeight="300dp"
-                android:dropDownWidth="match_parent"
-                android:background="@null"/>
+                    android:dropDownWidth="match_parent"
+                    android:background="@null"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- DOB Picker -->
@@ -124,7 +125,7 @@
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusBottomEnd="16dp"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etDob"
@@ -145,7 +146,7 @@
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusBottomEnd="16dp"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="24dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etAge"

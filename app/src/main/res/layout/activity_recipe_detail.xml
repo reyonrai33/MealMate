@@ -18,11 +18,12 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
 
+            android:background="@android:color/transparent"
             android:backgroundTint="@color/on_surface"
             app:title="Recipe Details"
             app:menu="@menu/recipe_menu"
+            android:textStyle="bold"
             app:titleTextColor="@color/on_surface"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     </com.google.android.material.appbar.AppBarLayout>
@@ -39,13 +40,22 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Hero Image -->
-            <ImageView
-                android:id="@+id/recipeImage"
+            <!-- Ingredients Section -->
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                android:background="@color/on_surface"
+                android:layout_height="wrap_content"
+                android:text="Ingredients"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Dynamic Container for Ingredients -->
+            <LinearLayout
+                android:id="@+id/ingredientsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_marginBottom="16dp" />
 
             <!-- Recipe Name -->
@@ -59,6 +69,32 @@
                 android:textColor="@color/on_surface"
                 android:gravity="start"
                 android:layout_marginBottom="8dp" />
+
+            <!-- Hero Image -->
+            <ImageView
+                android:id="@+id/recipeImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/border"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Step-by-Step Instructions -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Instructions"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface"
+                android:layout_marginBottom="8dp" />
+
+            <!-- ViewPager2 for Instructions -->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/instructionsViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
 
             <!-- Recipe Details -->
             <LinearLayout
@@ -92,41 +128,6 @@
                         android:layout_marginTop="4dp" />
                 </LinearLayout>
             </LinearLayout>
-
-            <!-- Ingredients Section -->
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ingredients"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/on_surface"
-                android:layout_marginBottom="8dp" />
-
-            <!-- Dynamic Container for Ingredients -->
-            <LinearLayout
-                android:id="@+id/ingredientsContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="16dp" />
-
-            <!-- Step-by-Step Instructions -->
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Instructions"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/on_surface"
-                android:layout_marginBottom="8dp" />
-
-            <!-- ViewPager2 for Instructions -->
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/instructionsViewPager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp" />
 
             <!-- Navigation Buttons -->
             <LinearLayout

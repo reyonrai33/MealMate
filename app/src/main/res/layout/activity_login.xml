@@ -30,7 +30,7 @@
         android:padding="20dp"
         app:cardCornerRadius="24dp"
         android:layout_centerInParent="true"
-        android:backgroundTint="@color/surface"
+        android:backgroundTint="@color/semi_transparent_surface"
         app:cardElevation="10dp"
         app:strokeWidth="1dp"
         app:strokeColor="@color/on_surface_variant">
@@ -64,6 +64,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:backgroundTint="@color/on_surface_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -79,6 +81,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:backgroundTint="@color/on_surface_variant"
                 app:endIconMode="password_toggle">
 
@@ -97,6 +101,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/signIn"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="12dp"
                 app:cornerRadius="24dp"
                 android:textColor="@color/on_primary"/>
@@ -109,7 +115,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/forgotPas"
                 android:textColor="@color/primary"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

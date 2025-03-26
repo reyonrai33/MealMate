@@ -26,7 +26,7 @@
     <string name="back_to_sign_in">Back to Sign In</string>
 
 
-    <string name="loading">Please wait, MealMate is processing...</string>
+    <string name="loading">Please wait...</string>
     <string name="profile_image_desc">Profile Image</string>
     <string name="upload_photo">Upload Photo </string>
     <string name="full_name">Full Name </string>

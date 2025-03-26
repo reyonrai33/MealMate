@@ -2,7 +2,7 @@
     <string name="app_name">Meal Mate</string>
     <!-- Landing Screen Texts -->
     <string name="app_title">Welcome to MealMate</string>
-    <string name="home_desc">Plan meals, create lists, and shop smarter—together!</string>
+    <string name="home_desc">Plan, list, and shop smarter—together!</string>
     <string name="imageDec">Background image for MealMate</string>
 
     <!-- Button Texts -->

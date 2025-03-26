@@ -19,7 +19,7 @@
     <color name="surface">#FFE0B2</color> <!-- Light, subtle beige for surface elements -->
     <color name="on_surface">#4E342E</color> <!-- Dark brown for text/icons on surface elements -->
     <color name="on_surface_variant">#8D6E63</color> <!-- Muted brown for contrast on surface_variant -->
-    <color name="semi_transparent_surface">#AAEFC88E</color>
+    <color name="semi_transparent_surface">#E1EFC88E</color>
 
     <!-- State Colors -->
     <color name="error">#D32F2F</color> <!-- Material Design error color (red) -->
@@ -36,7 +36,7 @@
 
     <color name="textDarkBrown">#4E342E</color>  <!-- Dark brown for better contrast on yellow/orange -->
     <color name="textLightBeige">#FFF3E0</color> <!-- Light beige for soft text contrast -->
-    <color name="transparent_white">#BCFFFFFF</color>
+    <color name="transparent_white">#78FFFFFF</color>
 
     <color name="chip_selector">#FFE0B2</color> <!-- Light beige chip selector color -->
 </resources>

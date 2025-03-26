@@ -58,6 +58,7 @@
             android:textColor="@color/on_primary"
             android:lineSpacingExtra="5dp"
             android:shadowColor="#80000000"
+            android:textSize="14dp"
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="5"/>
@@ -76,7 +77,7 @@
         android:layout_marginBottom="120dp"
         app:backgroundTint="@color/primary"
         android:text="@string/signup"
-        android:textColor="@color/on_primary"
+        android:textColor="@color/black"
         android:textStyle="bold" />
 
     <!-- Login Button -->

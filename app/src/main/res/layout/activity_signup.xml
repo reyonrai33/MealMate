@@ -42,14 +42,16 @@
             android:gravity="center_horizontal">
 
             <!-- Dynamic Logo -->
+
+            <!-- Title -->
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:contentDescription="@string/logoDesc"
                 android:layout_marginBottom="16dp"
+                android:layout_marginTop="30dp"
+                android:contentDescription="@string/logoDesc"
                 android:src="@drawable/logo" />
 
-            <!-- Title -->
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvTitle"
                 style="@style/TextAppearance.Heading"
@@ -137,9 +139,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/alreadyHaveAccountSignIn"
-                android:textColor="@color/primary"
-                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
                 android:textSize="14sp"/>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

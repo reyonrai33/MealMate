@@ -190,9 +190,8 @@ public class HomeFragment extends Fragment implements MealAdapter.OnMealRemoveLi
             }
         }
 
-// Convert the Set back to a List for further processing
+        // Convert the Set back to a List for further processing
         List<String> groceryItems = new ArrayList<>(uniqueGroceryItems);
-
 
         // Get Current Location
         if (checkLocationPermission()) {
@@ -210,55 +209,71 @@ public class HomeFragment extends Fragment implements MealAdapter.OnMealRemoveLi
                                     String latLong = document.getString("latLong");
                                     List<String> ingredients = (List<String>) document.get("ingredients");
 
-                                    // Extract Latitude and Longitude from latLong string
-                                    String[] latLngParts = latLong.replace("Lat:", "").replace("Long:", "").split(",");
-                                    double storeLat = Double.parseDouble(latLngParts[0].trim());
-                                    double storeLng = Double.parseDouble(latLngParts[1].trim());
-
-                                    // Calculate Distance
-                                    String distance = calculateDistance(currentLat, currentLng, storeLat, storeLng);
-
-                                    // Get Matched Ingredients
-                                    List<String> matchedIngredients = new ArrayList<>();
-                                    for (String ingredient : ingredients) {
-                                        for (String dbItem : groceryItems) {
-                                            if (ingredient.equalsIgnoreCase(dbItem.trim())) {
-                                                matchedIngredients.add(ingredient);
-                                            }
-                                        }
+                                    // Ensure latLong is not null or empty
+                                    if (latLong == null || latLong.isEmpty()) {
+                                        Log.e("HomeFragment", "Invalid latLong format for store: " + storeName);
+                                        continue;  // Skip this store if latLong is not valid
                                     }
 
-                                    // Get Photo URL
-                                    getPhotoReference(String.valueOf(storeLat), String.valueOf(storeLng), APIKey.GOOGLE_API_KEY, new OnPhotoUrlReceivedListener() {
-                                        @Override
-                                        public void onPhotoUrlReceived(String imageUrl) {
-                                            // Add to List
-                                            SavedLocation savedLocation = new SavedLocation(
-                                                    storeName,
-                                                    imageUrl != null ? imageUrl : "https://example.com/default_image.jpg", // Use default image if null
-                                                    address,
-                                                    storeLat,
-                                                    storeLng,
-                                                    distance,
-                                                    ingredients,
-                                                    matchedIngredients.size()  // Matching Count
-                                            );
+                                    // Extract Latitude and Longitude from latLong string
+                                    String[] latLngParts = latLong.replace("Lat:", "").replace("Long:", "").split(",");
+                                    if (latLngParts.length == 2) {
+                                        try {
+                                            double storeLat = Double.parseDouble(latLngParts[0].trim());
+                                            double storeLng = Double.parseDouble(latLngParts[1].trim());
 
-                                            // Set matched ingredients
-                                            savedLocation.setMatchedIngredients(matchedIngredients);
-                                            storeList.add(savedLocation);
+                                            // Calculate Distance
+                                            String distance = calculateDistance(currentLat, currentLng, storeLat, storeLng);
 
-                                            // Refresh Adapter on the UI Thread
-                                            requireActivity().runOnUiThread(() -> {
-                                                if (storeAdapter == null) {
-                                                    storeAdapter = new StoreAdapter(requireContext(), storeList);
-                                                    favStoreRecyclerView.setAdapter(storeAdapter);
-                                                } else {
-                                                    storeAdapter.notifyDataSetChanged();
+                                            // Get Matched Ingredients
+                                            List<String> matchedIngredients = new ArrayList<>();
+                                            for (String ingredient : ingredients) {
+                                                for (String dbItem : groceryItems) {
+                                                    if (ingredient.equalsIgnoreCase(dbItem.trim())) {
+                                                        matchedIngredients.add(ingredient);
+                                                    }
+                                                }
+                                            }
+
+                                            // Get Photo URL
+                                            getPhotoReference(String.valueOf(storeLat), String.valueOf(storeLng), APIKey.GOOGLE_API_KEY, new OnPhotoUrlReceivedListener() {
+                                                @Override
+                                                public void onPhotoUrlReceived(String imageUrl) {
+                                                    // Add to List
+                                                    SavedLocation savedLocation = new SavedLocation(
+                                                            storeName,
+                                                            imageUrl != null ? imageUrl : "https://example.com/default_image.jpg", // Use default image if null
+                                                            address,
+                                                            storeLat,
+                                                            storeLng,
+                                                            distance,
+                                                            ingredients,
+                                                            matchedIngredients.size()  // Matching Count
+                                                    );
+
+                                                    // Set matched ingredients
+                                                    savedLocation.setMatchedIngredients(matchedIngredients);
+                                                    storeList.add(savedLocation);
+
+                                                    // Refresh Adapter on the UI Thread
+                                                    requireActivity().runOnUiThread(() -> {
+                                                        if (storeAdapter == null) {
+                                                            storeAdapter = new StoreAdapter(requireContext(), storeList);
+                                                            favStoreRecyclerView.setAdapter(storeAdapter);
+                                                        } else {
+                                                            storeAdapter.notifyDataSetChanged();
+                                                        }
+                                                    });
                                                 }
                                             });
+                                        } catch (NumberFormatException e) {
+                                            Log.e("HomeFragment", "Invalid latLong values: " + latLong);
+                                            continue;  // Skip this store if lat/long parsing fails
                                         }
-                                    });
+                                    } else {
+                                        Log.e("HomeFragment", "Invalid latLong format for store: " + storeName);
+                                        continue;  // Skip this store if lat/long format is incorrect
+                                    }
                                 }
 
                                 // Set Adapter (In case there are no stores to display)
@@ -271,10 +286,19 @@ public class HomeFragment extends Fragment implements MealAdapter.OnMealRemoveLi
                                 customProgressDialog.dismiss();
                                 Toast.makeText(requireContext(), "Failed to load data", Toast.LENGTH_SHORT).show();
                             });
+                } else {
+                    // Handle case where location is null (location fetch failed)
+                    Toast.makeText(requireContext(), "Unable to get location. Please ensure location services are enabled.", Toast.LENGTH_SHORT).show();
+                    customProgressDialog.dismiss();
                 }
+            }).addOnFailureListener(e -> {
+                // Handle location fetching failure (e.g., no permission or error)
+                Toast.makeText(requireContext(), "Failed to get location. Please try again.", Toast.LENGTH_SHORT).show();
+                customProgressDialog.dismiss();
             });
         }
     }
+
 
 
 

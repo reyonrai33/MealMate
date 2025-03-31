@@ -25,9 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:scaleType="centerCrop"
+            android:backgroundTint="@color/on_surface_variant"
             android:contentDescription="@string/imageDec"
-            android:background="@color/on_surface_variant"
+            android:background="@drawable/border_rounded"
             android:layout_marginBottom="12dp" />
+
 
         <!-- Recipe Name -->
         <com.google.android.material.textview.MaterialTextView
@@ -38,10 +40,11 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/on_surface"
-            android:gravity="start"
+            android:gravity="center"
             android:maxLines="1"
             android:ellipsize="end"
             android:layout_marginBottom="8dp" />
+
 
         <!-- Recipe Details - Horizontal Layout -->
         <LinearLayout
@@ -61,7 +64,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    app:tint="@color/primary"
+                    app:tint="@color/black"
                     android:src="@drawable/ic_ingredients" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -86,7 +89,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    app:tint="@color/primary"
+                    app:tint="@color/black"
                     android:src="@drawable/ic_time" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -111,7 +114,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    app:tint="@color/primary"
+                    app:tint="@color/black"
                     android:src="@drawable/ic_steps" />
 
                 <com.google.android.material.textview.MaterialTextView

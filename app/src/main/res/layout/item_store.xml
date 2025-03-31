@@ -28,9 +28,10 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="Store Name"
+                android:gravity="center"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:textColor="@color/primary"
+                android:textColor="@color/black"
                 android:maxLines="1"
                 android:ellipsize="end" />
 
@@ -96,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:text="Grocery Matches:"
                         android:textSize="14sp"
-                        android:textColor="@color/primary"
+                        android:textColor="@color/material_dynamic_primary30"
                         android:textStyle="bold" />
 
                     <TextView
@@ -117,14 +118,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Get Directions"
-                    android:textColor="@color/primary"
+                    android:textColor="@color/material_dynamic_primary10"
                     android:textSize="14sp"
-                    app:strokeColor="@color/primary"
+                    app:strokeColor="@color/white"
+                    android:backgroundTint="@color/primary"
                     app:cornerRadius="18dp"
                     app:iconTint="@color/primary"
                     app:iconPadding="4dp"
                     android:layout_marginTop="10dp"
                     app:iconGravity="textStart" />
+
             </LinearLayout>
         </LinearLayout>
 

@@ -35,12 +35,13 @@
 
         <!-- Upload Image Section -->
         <ImageView
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/recipeImage"
             android:layout_width="match_parent"
+            android:background="@drawable/border_rounded"
+            android:backgroundTint="@color/material_dynamic_primary30"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:background="@android:color/darker_gray"
             android:contentDescription="@string/imageDec"/>
 
         <Button
@@ -98,6 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/add_ingredient"
+                android:layout_marginStart="16dp"
                 android:textSize="16sp"
                 android:padding="12dp"
                 android:backgroundTint="@color/secondary"/>

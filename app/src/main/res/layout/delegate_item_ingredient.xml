@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- res/layout/delegate_item_ingredient.xml -->
-
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,21 +14,28 @@
         android:padding="16dp">
 
         <CheckBox
-            android:id="@+id/checkBoxIngredient"
+            android:id="@+id/cbSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp" />
 
         <TextView
-            android:id="@+id/textViewIngredientName"
+            android:id="@+id/tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Ingredient Name"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editTextPrice"
+            android:id="@+id/etQuantity"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:hint="Qty"
+            android:inputType="number"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/etPrice"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:hint="Price"

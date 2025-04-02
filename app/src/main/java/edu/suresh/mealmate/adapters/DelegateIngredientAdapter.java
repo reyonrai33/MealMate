@@ -78,8 +78,8 @@ public class DelegateIngredientAdapter extends RecyclerView.Adapter<DelegateIngr
 
         public IngredientViewHolder(@NonNull View itemView) {
             super(itemView);
-            checkBoxIngredient = itemView.findViewById(R.id.checkBoxIngredient);
-            textViewIngredientName = itemView.findViewById(R.id.textViewIngredientName);
+            //checkBoxIngredient = itemView.findViewById(R.id.checkBoxIngredient);
+            //textViewIngredientName = itemView.findViewById(R.id.textViewIngredientName);
         }
     }
 }
